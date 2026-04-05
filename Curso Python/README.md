@@ -44,14 +44,14 @@
 
 ### **PARTE I: Fundamentos Básicos**
 
-#### 1️⃣ **Instalación y Configuración** (`install.md`)
+#### 1️⃣ **Instalación y Configuración** (`01-install.md`)
    - Descarga e instalación de Python
    - Configuración de entornos virtuales (venv)
    - Instalación de paquetes con pip
    - IDEs recomendados (VS Code, PyCharm)
    - Verificación de instalación
 
-#### 2️⃣ **Estructura Básica de Python** (`estructura_basica_python.md`)
+#### 2️⃣ **Estructura Básica de Python** (`02-estructura_basica_python.md`)
    - Tu primer programa `print("Hola")`
    - Estructura de archivos `.py`
    - Módulos y paquetes
@@ -60,7 +60,7 @@
    - `if __name__ == "__main__":`
    - Argumentos de línea de comandos (sys.argv)
 
-#### 3️⃣ **Variables y Asignación** (`variables.md`)
+#### 3️⃣ **Variables y Asignación** (`03-variables.md`)
    - Mutable vs Immutable
    - Declaración: simple vs múltiple
    - Naming conventions (snake_case)
@@ -69,7 +69,7 @@
    - Constantes (convención con MAYÚSCULAS)
    - F-strings y formateo
 
-#### 4️⃣ **Tipos de Datos Básicos** (`tipos_datos.md`)
+#### 4️⃣ **Tipos de Datos Básicos** (`04-tipos_datos.md`)
    - Números: `int`, `float`, `complex`
    - Booleanos: `bool` (True/False)
    - Cadenas: `str` (inmutables)
@@ -77,7 +77,7 @@
    - type() e isinstance()
    - Operaciones específicas de cada tipo
 
-#### 5️⃣ **Operadores** (`operadores.md`)
+#### 5️⃣ **Operadores** (`05-operadores.md`)
    - Aritméticos: +, -, *, /, //, %, **
    - Comparación: ==, !=, <, >, <=, >=
    - Lógicos: and, or, not
@@ -86,14 +86,14 @@
    - Membresía: in, not in
    - Precedencia de operadores
 
-#### 6️⃣ **Control de Flujo** (`control_flujo.md`)
+#### 6️⃣ **Control de Flujo** (`06-control_flujo.md`)
    - Sentencias if/elif/else
    - Operador ternario: `x if condición else y`
    - Bloques anidados
    - Truthy y Falsy
    - Match/case (Python 3.10+)
 
-#### 7️⃣ **Bucles e Iteraciones** (`bucles_iteraciones.md`)
+#### 7️⃣ **Bucles e Iteraciones** (`07-bucles_iteraciones.md`)
    - for: iteración sobre secuencias
    - while: iteración condicional
    - break, continue, pass
@@ -102,7 +102,7 @@
    - else en bucles
    - Anidación de bucles
 
-#### 8️⃣ **Cadenas de Texto (Strings)** (`strings.md`)
+#### 8️⃣ **Cadenas de Texto (Strings)** (`08-strings.md`)
    - Creación: comillas simples/dobles/triples
    - Acceso e indexing
    - Slicing (rebanadas)
@@ -116,7 +116,7 @@
 
 ### **PARTE II: Estructuras de Datos**
 
-#### 9️⃣ **Listas, Tuplas y Conjuntos** (`listas_tuplas_conjuntos.md`)
+#### 9️⃣ **Listas, Tuplas y Conjuntos** (`09-listas_tuplas_conjuntos.md`)
    - **Listas** (mutables): creación, acceso, modificación
    - Métodos de listas: append, extend, insert, remove, pop, sort, reverse
    - Slicing de listas
@@ -125,7 +125,7 @@
    - **Conjuntos (sets)**: operaciones de teoría de conjuntos
    - Diferencias y casos de uso
 
-#### 🔟 **Diccionarios y Mapeos** (`diccionarios.md`)
+#### 🔟 **Diccionarios y Mapeos** (`10-diccionarios.md`)
    - Creación: literal {} y dict()
    - Acceso: claves, .get(), .keys(), .values(), .items()
    - Modificación: actualización, pop, del
@@ -134,7 +134,7 @@
    - Iteración eficiente
    - defaultdict y Counter
 
-#### 1️⃣1️⃣ **Comprehensiones** (`comprehensiones.md`) ⭐ TEMA AVANZADO
+#### 1️⃣1️⃣ **Comprehensiones** (`11-comprehensiones.md`) ⭐ TEMA AVANZADO
    - List comprehensions: [x*2 for x in range(10)]
    - Diccionario comprehensions: {k: v for k, v in items}
    - Set comprehensions
@@ -146,7 +146,7 @@
 
 ### **PARTE III: Funciones y Programación Funcional**
 
-#### 1️⃣2️⃣ **Funciones en Python** (`funciones.md`)
+#### 1️⃣2️⃣ **Funciones en Python** (`12-funciones.md`)
    - Definición: def nombre(parámetros):
    - Parámetros: por posición, por nombre, por defecto
    - *args y **kwargs (argumentos variables)
@@ -156,7 +156,7 @@
    - Funciones anónimas (lambda)
    - Funciones como objetos (first-class functions)
 
-#### 1️⃣3️⃣ **Decoradores** (`decoradores.md`) ⭐ TEMA INTERMEDIO
+#### 1️⃣3️⃣ **Decoradores** (`13-decoradores.md`) ⭐ TEMA INTERMEDIO
    - ¿Qué son los decoradores?
    - Funciones que retornan funciones
    - El símbolo @ y su significado
@@ -166,7 +166,7 @@
    - Decoradores de clase
    - Estacked decorators (pilas)
 
-#### 1️⃣4️⃣ **Programación Orientada a Objetos** (`poo.md`)
+#### 1️⃣4️⃣ **Programación Orientada a Objetos** (`14-poo.md`)
    - Clases y objetos: definición e instanciación
    - Atributos: de instancia y de clase
    - Métodos: instancia, clase (@classmethod), estática (@staticmethod)
@@ -177,7 +177,7 @@
    - Propiedades (@property)
    - Encapsulación
 
-#### 1️⃣5️⃣ **Manejo de Excepciones** (`manejo_errores.md`)
+#### 1️⃣5️⃣ **Manejo de Excepciones** (`15-manejo_errores.md`)
    - Try/except/finally
    - Múltiples excepciones
    - Excepciones personalizadas
@@ -190,7 +190,7 @@
 
 ### **PARTE IV: Entrada/Salida y Datos**
 
-#### 1️⃣6️⃣ **Entrada y Salida de Archivos** (`archivos_io.md`)
+#### 1️⃣6️⃣ **Entrada y Salida de Archivos** (`16-archivos_io.md`)
    - Lectura: read(), readline(), readlines()
    - Escritura: write(), writelines()
    - El contexto manager: with open()
@@ -199,7 +199,7 @@
    - Encodings: UTF-8, ASCII, latin-1
    - Lectura línea por línea (memory efficient)
 
-#### 1️⃣7️⃣ **JSON y Serialización** (`json_serializacion.md`)
+#### 1️⃣7️⃣ **JSON y Serialización** (`17-json_serializacion.md`)
    - JSON: formato universal
    - json.dumps() y json.loads()
    - json.dump() y json.load()
@@ -208,7 +208,7 @@
    - CSV: csv module
    - YAML introducción
 
-#### 1️⃣8️⃣ **Módulos y Paquetes** (`modulos_paquetes.md`)
+#### 1️⃣8️⃣ **Módulos y Paquetes** (`18-modulos_paquetes.md`)
    - Diferencia: módulos vs paquetes
    - Creación de módulos reutilizables
    - Import: absoluto vs relativo
@@ -217,7 +217,7 @@
    - sys.path
    - Librerías estándar importantes
 
-#### 1️⃣9️⃣ **Bases de Datos** (`bases_datos.md`)
+#### 1️⃣9️⃣ **Bases de Datos** (`19-bases_datos.md`)
    - SQLite (en la stdlib)
    - Conexiones y cursores
    - SQL básico con Python
@@ -230,7 +230,7 @@
 
 ### **PARTE V: Tests y Buenas Prácticas**
 
-#### 2️⃣0️⃣ **Testing** (`testing.md`) ⭐ TEMA IMPORTANTE
+#### 2️⃣0️⃣ **Testing** (`20-testing.md`) ⭐ TEMA IMPORTANTE
    - unittest módulo
    - pytest framework
    - Test discovery y fixtures
@@ -239,7 +239,7 @@
    - Cobertura de código
    - TDD (Test-Driven Development)
 
-#### 2️⃣1️⃣ **Buenas Prácticas** (`buenas_practicas.md`)
+#### 2️⃣1️⃣ **Buenas Prácticas** (`21-buenas_practicas.md`)
    - PEP 8: Estilo de código
    - Naming: variables, funciones, clases
    - DRY (Don't Repeat Yourself)
@@ -252,7 +252,7 @@
 
 ### **PARTE VI: Temas Avanzados Únicos de Python**
 
-#### 2️⃣2️⃣ **Generators y Corrutinas** (`generators_corrutinas.md`)
+#### 2️⃣2️⃣ **Generators y Corrutinas** (`22-generators_corrutinas.md`)
    - yield vs return
    - Generator functions
    - Expresiones generadoras
@@ -260,14 +260,14 @@
    - Async/await (Python 3.5+)
    - asyncio basics
 
-#### 2️⃣3️⃣ **Context Managers** (`context_managers.md`)
+#### 2️⃣3️⃣ **Context Managers** (`23-context_managers.md`)
    - with statement
    - __enter__ y __exit__
    - contextlib.contextmanager
    - ExitStack
    - Casos de uso prácticos
 
-#### 2️⃣4️⃣ **Librerías Estándar Útiles** (`stdlib_utiles.md`)
+#### 2️⃣4️⃣ **Librerías Estándar Útiles** (`24-stdlib_utiles.md`)
    - collections: defaultdict, Counter, namedtuple, deque
    - itertools: combinations, permutations, cycle
    - functools: reduce, partial, lru_cache
@@ -279,7 +279,7 @@
    - re: Expresiones regulares
    - math: Constantes y funciones matemáticas
 
-#### 2️⃣5️⃣ **Expresiones Regulares** (`regex.md`)
+#### 2️⃣5️⃣ **Expresiones Regulares** (`25-regex.md`)
    - Patrones básicos
    - re.match, re.search, re.findall, re.sub
    - Groupos de captura
@@ -287,21 +287,21 @@
    - Compilación de patrones
    - Raw strings r""
 
-#### 2️⃣6️⃣ **Performance y Optimización** (`performance.md`)
+#### 2️⃣6️⃣ **Performance y Optimización** (`26-performance.md`)
    - Timing: timeit
    - Profiling: cProfile, line_profiler
    - Memory profiling
    - Optimizaciones comunes
    - Numba y Cython para cálculos intensivos
 
-#### 2️⃣7️⃣ **Web con Python** (`web_basico.md`)
+#### 2️⃣7️⃣ **Web con Python** (`27-web_basico.md`)
    - HTTP: requests library
    - Parsing HTML: BeautifulSoup
    - APIs REST: json
    - Flask: microframework web
    - FastAPI: alternativa moderna
 
-#### 2️⃣8️⃣ **Data Science Intro** (`data_science.md`)
+#### 2️⃣8️⃣ **Data Science Intro** (`28-data_science.md`)
    - NumPy: arrays multidimensionales
    - Pandas: DataFrames
    - Matplotlib: visualización
