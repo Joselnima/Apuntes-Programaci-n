@@ -41,7 +41,7 @@
 
 ### **PARTE I: Fundamentos Básicos**
 
-#### 1️⃣ **Estructura Básica de Go** (`estructura_basica_go.md`)
+#### 1️⃣ **Estructura Básica de Go** (`02-estructura_basica_go.md`)
    - Package declaration y función main()
    - Importaciones (orden y best practices)
    - Comentarios y documentación (Godoc)
@@ -50,7 +50,7 @@
    - Argumentos de línea de comandos
    - init() y ciclo de ejecución
 
-#### 2️⃣ **Variables, Constantes y Tipos** (`variables.md`)
+#### 2️⃣ **Variables, Constantes y Tipos** (`03-variables.md`)
    - Declaración: `var`, `:=`, constantes
    - Tipos de datos básicos: int, float, string, bool
    - Zero values (valores por defecto)
@@ -60,20 +60,20 @@
    - Ejemplo integrado: Calculadora de presupuesto
    - Anti-patrones y mejores prácticas
 
-#### 3️⃣ **Tipos de Datos** (`tipos_datos.md`)
+#### 3️⃣ **Tipos de Datos** (`04-tipos_datos.md`)
    - Tipos básicos: bool, int, float, string
    - Tipos especiales: byte, rune, time.Time
    - Tipos compuestos: array, slice, map, struct
    - Pointers, functions, interfaces
    - Ejercicio integrado: Sistema de biblioteca
 
-#### 4️⃣ **Operadores** (`operadores.md`)
+#### 4️⃣ **Operadores** (`05-operadores.md`)
    - Aritméticos: +, -, *, /, %
    - Lógicos: &&, ||, !
    - Comparación: ==, !=, <, >
    - Asignación: =, +=, -=, etc.
 
-#### 5️⃣ **Estructura Secuencial** (`estructura_secuencial.md`)
+#### 5️⃣ **Estructura Secuencial** (`06-estructura_secuencial.md`)
    - Variables y asignaciones
    - Operaciones secuenciales
    - Actualizaciones de variables
@@ -82,19 +82,19 @@
    - Ejemplo integrado: Carrito de compras
    - Mejores prácticas
 
-#### 6️⃣ **Strings** (`string.md`)
+#### 6️⃣ **Strings** (`07-string.md`)
    - Creación y manipulación
    - Funciones de strings (split, join, contains, etc.)
    - Conversiones y codificación UTF-8
    - Ejemplos prácticos
 
-#### 7️⃣ **Arrays** (`array.md`)
+#### 7️⃣ **Arrays** (`08-array.md`)
    - Arrays vs slice
    - Iteración y acceso
    - Operaciones comunes
    - Casos de uso
 
-#### 8️⃣ **Slices** (`slices.md`)
+#### 8️⃣ **Slices** (`09-slices.md`)
    - Dinámicos y flexibles
    - Append, slicing, capacity
    - Diferencias con arrays
@@ -104,13 +104,13 @@
 
 ### **PARTE II: Control de Flujo y Bucles**
 
-#### 9️⃣ **Control de Flujo** (`control_flujo.md`)
+#### 9️⃣ **Control de Flujo** (`10-control_flujo.md`)
    - `if/else/else if`: Decisiones simples
    - `switch`: Múltiples opciones
    - `goto`: Evitar (generalmente)
    - 3 ejemplos integrados: Calculadora, Validador, Procesador
 
-#### 🔟 **Bucles e Iteraciones** (`bucles_iteraciones.md`)
+#### 🔟 **Bucles e Iteraciones** (`11-bucles_iteraciones.md`)
    - `for` clásico: El único loop de Go
    - `for range`: Iterar sobre colecciones
    - `break` y `continue`
@@ -121,7 +121,7 @@
 
 ### **PARTE III: Funciones y Métodos**
 
-#### 1️⃣1️⃣ **Funciones** (`funciones.md`)
+#### 1️⃣1️⃣ **Funciones** (`12-funciones.md`)
    - Funciones básicas: parámetros y retornos
    - Múltiples retornos y error handling
    - Funciones anónimas y closures
@@ -130,7 +130,7 @@
    - Recursión y memoización
    - Orden superior y composición
 
-#### 1️⃣2️⃣ **Programación Orientada a Objetos** (`poo.md`)
+#### 1️⃣2️⃣ **Programación Orientada a Objetos** (`13-poo.md`)
    - Structs como objetos (sin clases)
    - Métodos: receivers por valor/referencia
    - Interfaces: contratos y polimorfismo
@@ -143,14 +143,14 @@
 
 ### **PARTE IV: Estándar Library (Standard Packages)**
 
-#### 1️⃣3️⃣ **Time y Date** (`time.md`, `date.md`)
+#### 1️⃣3️⃣ **Time y Date** (`14-time.md`, `15-date.md`)
    - `time.Now()`: Hora actual
    - Parsing y formatting
    - Durations
    - Operaciones con fechas
    - Ejemplos de uso
 
-#### 1️⃣4️⃣ **Math y Random** (`math.md`, `math_rand.md`)
+#### 1️⃣4️⃣ **Math y Random** (`16-math.md`, `17-math_rand.md`)
    - Funciones matemáticas: Sqrt, Pow, Sin, Cos, Log
    - Números aleatorios
    - Seeding for reproducibility
@@ -159,7 +159,7 @@
 
 ### **PARTE V: Estructuras de Datos Avanzadas**
 
-#### 1️⃣5️⃣ **Estructuras de Datos Complejas** (`data_structures.md`)
+#### 1️⃣5️⃣ **Estructuras de Datos Complejas** (`18-data_structures.md`)
    - Arrays y slices: casos de uso
    - Maps: tablas hash eficientes
    - Structs: agrupación de datos
@@ -177,7 +177,7 @@
 
 ### **PARTE VI: I/O y Persistencia**
 
-#### 1️⃣6️⃣ **Archivos y Persistencia** (`archivos_persistencia_serializacion.md`)
+#### 1️⃣6️⃣ **Archivos y Persistencia** (`19-archivos_persistencia_serializacion.md`)
    - Leer/escribir archivos
    - Directorios
    - Serialización: JSON, CSV, XML, Binary
@@ -192,7 +192,7 @@
 
 ### **PARTE VII: Algoritmos y Complejidad**
 
-#### 1️⃣7️⃣ **Algoritmos y Big O** (`algoritmos_complejidad.md`)
+#### 1️⃣7️⃣ **Algoritmos y Big O** (`20-algoritmos_complejidad.md`)
    - Notación Big O: O(1), O(n), O(n²), O(2ⁿ)
    - Búsqueda lineal vs binaria
    - Ordenamiento: Bubble, Quick, Merge
@@ -206,7 +206,7 @@
 
 ### **PARTE VIII: Manejo de Errores y Debugging**
 
-#### 1️⃣8️⃣ **Errores y Debugging** (`manejo_errores_depuracion.md`)
+#### 1️⃣8️⃣ **Errores y Debugging** (`21-manejo_errores_depuracion.md`)
    - Modelo de errores de Go (valores, no excepciones)
    - `errors.New()` y `fmt.Errorf()`
    - Errores personalizados
@@ -222,7 +222,7 @@
 
 ### **PARTE IX: Bases de Datos**
 
-#### 1️⃣9️⃣ **Bases de Datos Completo** (`bases_datos.md`)
+#### 1️⃣9️⃣ **Bases de Datos Completo** (`22-bases_datos.md`)
    - Conceptos: SQL vs NoSQL, estructura, relaciones
    - **PostgreSQL**: Driver pq, CRUD, conexiones, queries
    - **MySQL**: Driver mysql, diferencias con PostgreSQL
@@ -240,7 +240,7 @@
 
 ### **PARTE X: Web y APIs**
 
-#### 2️⃣0️⃣ **HTTP y Servidores Web** (`http_servidores_web.md`)
+#### 2️⃣0️⃣ **HTTP y Servidores Web** (`23-http_servidores_web.md`)
    - Servidor HTTP mínimo
    - Objeto Request (métodos, parámetros, headers, body)
    - Objeto ResponseWriter (JSON, status codes, headers)
@@ -250,7 +250,7 @@
    - Manejo de errores
    - Anti-patrones
 
-#### 2️⃣1️⃣ **Paquetes, Módulos y Organización** (`paquetes_modulos_organizacion.md`)
+#### 2️⃣1️⃣ **Paquetes, Módulos y Organización** (`24-paquetes_modulos_organizacion.md`)
    - Qué son los paquetes (packages)
    - Módulos y go.mod
    - Importaciones (locales y terceros)
@@ -265,7 +265,7 @@
 
 ### **PARTE XI: Patrones Avanzados y Control de Ejecución**
 
-#### 2️⃣2️⃣ **Context, Timeouts y Cancelación** (`context_timeouts_cancelacion.md`)
+#### 2️⃣2️⃣ **Context, Timeouts y Cancelación** (`25-context_timeouts_cancelacion.md`)
    - Qué es Context y por qué existe
    - Deadline y Done channels
    - context.Background() y context.TODO()
@@ -278,7 +278,7 @@
    - Mejores prácticas en producción
    - Cleanup automático de recursos
 
-#### 2️⃣3️⃣ **ORM y Query Builders** (`orm_query_builders.md`)
+#### 2️⃣3️⃣ **ORM y Query Builders** (`26-orm_query_builders.md`)
    - SQL puro vs ORM (seguridad, type-safety)
    - **GORM**: Instalación, modelos, CRUD
    - Queries avanzadas y relaciones
@@ -296,7 +296,7 @@
 
 ### **PARTE XII: Autenticación y Seguridad**
 
-#### 2️⃣4️⃣ **Autenticación y Seguridad** (`autenticacion_seguridad.md`)
+#### 2️⃣4️⃣ **Autenticación y Seguridad** (`27-autenticacion_seguridad.md`)
    - ¿Por qué existe la seguridad?
    - Hashing de contraseñas con bcrypt
    - Registro y login seguros
@@ -316,7 +316,7 @@
 
 ### **PARTE XIII: Logs, Configuración y Observabilidad**
 
-#### 2️⃣5️⃣ **Logs, Configuración y Observabilidad** (`logs_configuracion_observabilidad.md`)
+#### 2️⃣5️⃣ **Logs, Configuración y Observabilidad** (`28-logs_configuracion_observabilidad.md`)
    - Logging estructurado vs desordenado
    - Slog (standard de Go 1.21+)
    - Logging en JSON para producción
@@ -337,7 +337,7 @@
 
 ### **PARTE XIV: Mejores Prácticas**
 
-#### 2️⃣6️⃣ **Buenas Prácticas** (`buenas_practicas.md`)
+#### 2️⃣6️⃣ **Buenas Prácticas** (`29-buenas_practicas.md`)
    - Convenciones de nombres: públicos/privados
    - Organización de código: paquetes y archivos
    - Manejo de errores idiomático
