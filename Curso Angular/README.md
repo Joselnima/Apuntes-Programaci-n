@@ -1,4 +1,4 @@
-# Curso de Angular 21 desde Cero 🚀
+# 📚 Curso Completo: Fundamentos de Angular 21 🚀
 
 Bienvenido a este curso **completo, detallado y explicado paso a paso** de **Angular 21** pensado para alguien que **recién empieza en programación**.
 

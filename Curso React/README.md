@@ -1,4 +1,4 @@
-# Curso de React desde Cero
+# 📚 Curso Completo: Fundamentos de React:
 
 Bienvenido a este curso de **React desde cero**, pensado para alguien que recién empieza en programación y quiere aprender paso a paso.
 
