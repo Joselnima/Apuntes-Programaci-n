@@ -1,134 +1,156 @@
-# Módulo 09 - Componentes: El Corazón de Angular
+﻿# Módulo 09 - Componentes: El corazón de Angular
 
-> **Las piezas reutilizables de toda aplicación**
+> **Las piezas reutilizables que hacen posible una app real**
 
 ---
 
-## ¿QUÉ es un componente?
+## ¿Qué es un componente?
 
-**Una caja que contiene: HTML + CSS + Lógica**
+Un componente en Angular es una unidad que combina:
 
-Analogía:
-- LEGO: Cada pieza es independiente
-- Puedes combinarlas de infinitas formas
-- Una pieza rota no afecta otras
+- HTML (vista)
+- CSS (estilos)
+- TypeScript (lógica)
 
-En Angular:
-- HeaderComponent
-- ProductCardComponent
-- CartComponent
-- FooterComponent
+Piensa en él como una caja con nombre:
 
-**Cada uno vive su vida.**
+- tiene entrada (`@Input()`)
+- tiene salida (`@Output()`)
+- tiene comportamiento propio
+
+### Ejemplo mínimo
 
 ```typescript
-// Estructura mínima
 @Component({
-  selector: 'app-header',           // Nombre HTML
-  templateUrl: './header.html',     // HTML
-  styleUrls: ['./header.css']       // CSS
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  title = 'Mi Tienda';              // Datos
-  
-  handleClick() {
-    // Lógica
+  title = 'Mi Tienda';
+
+  handleMenu() {
+    console.log('Abrir menú');
   }
 }
 ```
 
 ---
 
-## ¿PARA QUÉ?
+## ¿Por qué usar componentes?
 
-### Problema 1: Una Página, 500 Líneas
+### Problema 1: páginas enormes
 
-```html
-<!-- app.component.html - SIN componentes -->
-<header>
-  <h1>Mi Tienda</h1>
-  <nav>...</nav>
-</header>
+Si una vista tiene todo el HTML mezclado con lógica, se vuelve difícil de mantener y entender.
 
-<main>
-  <div class="product-list">
-    <div class="product-card">...</div>
-    <div class="product-card">...</div>
-    <!-- 50 líneas de HTML -->
-  </div>
-</main>
+### Problema 2: código duplicado
 
-<footer>
-  <!-- 20 líneas más -->
-</footer>
-```
+Si repites el mismo bloque en varias páginas, cada cambio se vuelve una pesadilla.
 
-**❌ Imposible de mantener. ¿Dónde termina header?**
+### Problema 3: responsabilidad mezclada
 
-### Solución: Descomponer en Componentes
+Un componente debe hacer una sola cosa:
+- una tarjeta de producto
+- un botón de búsqueda
+- una lista de mensajes
 
-```html
-<!-- app.component.html - CON componentes -->
-<app-header></app-header>
+Si mezclas todo, el código se rompe más rápido.
 
-<main>
-  <app-product-list></app-product-list>
-</main>
+---
 
-<app-footer></app-footer>
-```
+## Módulo 09 explicado con casos reales
 
-**✅ Claro. Cada componente en su archivo.**
+### Caso real 1: tienda online
 
-### Problema 2: Código Duplicado
+Componentes típicos:
+
+- `HeaderComponent`
+- `SearchBarComponent`
+- `ProductCardComponent`
+- `ProductListComponent`
+- `CartComponent`
+- `CheckoutComponent`
+
+Flujo real:
+
+1. `ProductListComponent` solicita los productos al servicio.
+2. Cada `ProductCardComponent` recibe su producto con `@Input()`.
+3. El usuario hace click en "Agregar al carrito".
+4. `ProductCardComponent` emite el evento con `@Output()`.
+5. `CartComponent` actualiza el carrito desde un servicio compartido.
+
+Eso significa:
+
+- cada componente es independiente
+- el diseño es reutilizable
+- el mantenimiento es más rápido
+
+### Caso real 2: dashboard de estadísticas
+
+Componentes comunes:
+
+- `StatCardComponent` para cada tarjeta de métrica
+- `ChartComponent` para gráficos
+- `TableComponent` para tablas
+- `FiltersComponent` para filtros globales
+
+Un `StatCardComponent` puede ser así:
 
 ```typescript
-// Sin componentes: Header aparece en 3 páginas
-// Copias ese HTML/CSS 3 veces
-// Cambio: actualizar en 3 lugares ❌
-
-// Con componentes: HeaderComponent existe una vez
-// Las 3 páginas lo usan
-// Cambio: actualizar en 1 lugar ✅
+@Component({
+  selector: 'app-stat-card',
+  template: `
+    <div class="stat-card">
+      <h4>{{ title }}</h4>
+      <p>{{ value }}</p>
+    </div>
+  `
+})
+export class StatCardComponent {
+  @Input() title!: string;
+  @Input() value!: number;
+}
 ```
 
-### Problema 3: Propiedades Locales Compartidas
+Esto permite usar la misma tarjeta con datos diferentes sin repetir código.
 
-```typescript
-// Sin servicios, cómo pasan datos?
+### Caso real 3: formulario por secciones
 
-// ❌ Aquí: cartCount en AppComponent
-// ProductCard necesita cartCount
-// Frontend necesita cartCount
-// ¿Quién es la fuente de verdad?
+En una app con formularios largos, conviene dividir en componentes pequeños:
 
-// ✅ CartService es la fuente de verdad
-// Todos los componentes leen de CartService
+- `PersonalInfoComponent`
+- `AddressFormComponent`
+- `PaymentFormComponent`
+
+Con esto tu `CheckoutComponent` queda más limpio:
+
+```html
+<app-personal-info [formGroup]="personalForm"></app-personal-info>
+<app-address-form [formGroup]="addressForm"></app-address-form>
+<app-payment-form [formGroup]="paymentForm"></app-payment-form>
 ```
 
 ---
 
-## ¿CÓMO crear componentes?
+## Cómo crear un componente
 
-### Paso 1: Generar el Componente
+### Paso 1: generar con Angular CLI
 
 ```bash
 ng generate component components/product-card
 ```
 
-**Angular crea:**
+Angular crea:
 
 ```
 src/app/components/product-card/
-├── product-card.component.ts       ← Lógica
-├── product-card.component.html     ← Template
-├── product-card.component.css      ← Estilos
-└── product-card.component.spec.ts  ← Tests (ignorar)
+├── product-card.component.ts
+├── product-card.component.html
+├── product-card.component.css
+└── product-card.component.spec.ts
 ```
 
-### Paso 2: Definir la Lógica
-
-**product-card.component.ts:**
+### Paso 2: lógica en TypeScript
 
 ```typescript
 import { Component, Input, Output, EventEmitter } from '@angular/core';
@@ -139,18 +161,13 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./product-card.component.css']
 })
 export class ProductCardComponent {
-  // @Input: Datos QUE ENTRA (props)
   @Input() product: any;
-  
-  // @Output: Eventos QUE SALE
-  @Output() onAddToCart = new EventEmitter<any>();
-  
-  // Propiedades locales
+  @Output() addToCart = new EventEmitter<any>();
+
   quantity = 1;
-  
-  // Métodos
-  addToCart() {
-    this.onAddToCart.emit({
+
+  handleAddToCart() {
+    this.addToCart.emit({
       product: this.product,
       quantity: this.quantity
     });
@@ -158,47 +175,24 @@ export class ProductCardComponent {
 }
 ```
 
-**¿Qué hace?**
-
-| Concepto | Qué es |
-|----------|--------|
-| `@Input()` | Propiedad que recibe datos del padre |
-| `@Output()` | Evento que envía datos al padre |
-| `EventEmitter` | Objeto que dispara eventos |
-| `emit()` | Envía un evento |
-
-### Paso 3: Template HTML
-
-**product-card.component.html:**
+### Paso 3: template HTML
 
 ```html
 <div class="card">
   <img [src]="product.imageUrl" alt="{{ product.name }}">
-  
   <h3>{{ product.name }}</h3>
   <p>{{ product.description }}</p>
-  
-  <p class="price">
-    ${{ product.price }}
-  </p>
-  
+  <p class="price">${{ product.price }}</p>
+
   <div class="quantity">
-    <input 
-      type="number" 
-      [(ngModel)]="quantity" 
-      min="1"
-    >
+    <input type="number" [(ngModel)]="quantity" min="1">
   </div>
-  
-  <button (click)="addToCart()">
-    Agregar al carrito
-  </button>
+
+  <button (click)="handleAddToCart()">Agregar al carrito</button>
 </div>
 ```
 
-### Paso 4: CSS
-
-**product-card.component.css:**
+### Paso 4: estilos CSS
 
 ```css
 .card {
@@ -238,21 +232,17 @@ button:hover {
 }
 ```
 
-### Paso 5: Usar el Componente
-
-**products-list.component.html:**
+### Paso 5: usar el componente desde un padre
 
 ```html
 <div class="products-grid">
   <app-product-card
     *ngFor="let product of products"
     [product]="product"
-    (onAddToCart)="handleAddToCart($event)"
+    (addToCart)="handleAddToCart($event)"
   ></app-product-card>
 </div>
 ```
-
-**products-list.component.ts:**
 
 ```typescript
 import { Component, OnInit } from '@angular/core';
@@ -265,66 +255,84 @@ import { ProductService } from '../../services/product.service';
 })
 export class ProductsListComponent implements OnInit {
   products: any[] = [];
-  
+
   constructor(private productService: ProductService) {}
-  
+
   ngOnInit() {
     this.productService.getProducts().subscribe(data => {
       this.products = data;
     });
   }
-  
+
   handleAddToCart(event: any) {
     console.log('Agregar:', event.product.name, 'Cantidad:', event.quantity);
-    // Aquí actualizas el carrito
+    // Actualiza el carrito con un servicio real
   }
 }
 ```
 
 ---
 
-## Ciclo de Vida de un Componente
+## Ciclo de vida de un componente Angular
 
-**Los componentes nacen, viven, mueren.**
+Un componente tiene etapas claras:
 
+- `constructor()` → se crea el componente
+- `ngOnChanges()` → cambia una entrada (`@Input`)
+- `ngOnInit()` → inicializa datos
+- `ngDoCheck()` → chequeos personalizados
+- `ngAfterViewInit()` → la vista ya está renderizada
+- `ngOnDestroy()` → se destruye y limpia recursos
+
+### Ejemplo real con `ngOnChanges`
+
+```typescript
+import { Component, Input, OnChanges, SimpleChanges, OnInit, OnDestroy } from '@angular/core';
+
+@Component({
+  selector: 'app-user-card',
+  template: `<p>{{ name }}</p>`
+})
+export class UserCardComponent implements OnChanges, OnInit, OnDestroy {
+  @Input() name!: string;
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.name) {
+      console.log('Nombre cambió:', changes.name.currentValue);
+    }
+  }
+
+  ngOnInit() {
+    console.log('UserCard inicializado');
+  }
+
+  ngOnDestroy() {
+    console.log('UserCard destruido');
+  }
+}
 ```
-constructor()          ← Nace (NO accedes a propiedades)
-  ↓
-ngOnInit()            ← Inicializa (AQUÍ cargas datos)
-  ↓
-ngDoCheck()           ← Angular verifica cambios
-  ↓
-ngAfterViewInit()     ← Template ya renderizado
-  ↓
-ngOnDestroy()         ← Muere (LIMPIA aquí)
-```
 
-**Uso práctico:**
+### Ejemplo real con limpieza en `ngOnDestroy`
 
 ```typescript
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { interval, Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-example',
-  templateUrl: './example.html'
+  selector: 'app-clock',
+  template: `<p>Hora: {{ time }}</p>`
 })
-export class ExampleComponent implements OnInit, OnDestroy {
-  subscription: Subscription;
-  
-  constructor(private productService: ProductService) {}
-  
+export class ClockComponent implements OnInit, OnDestroy {
+  time = new Date().toLocaleTimeString();
+  private subscription!: Subscription;
+
   ngOnInit() {
-    // ✅ CARGAR DATOS AQUÍ
-    this.subscription = this.productService
-      .getProducts()
-      .subscribe(data => {
-        console.log('Productos:', data);
-      });
+    this.subscription = interval(1000).subscribe(() => {
+      this.time = new Date().toLocaleTimeString();
+    });
   }
-  
+
   ngOnDestroy() {
-    // ✅ LIMPIAR RECURSOS AQUÍ
     this.subscription.unsubscribe();
   }
 }
@@ -332,55 +340,45 @@ export class ExampleComponent implements OnInit, OnDestroy {
 
 ---
 
-## Memory Leaks (Gotchas Importantes)
+## Evitar memory leaks en Angular
 
-### ❌ Memory Leak 1: Subscripciones Sin Limpiar
+### Mala práctica: suscripción sin limpiar
 
 ```typescript
-// ❌ INCORRECTO
 export class BadComponent implements OnInit {
   ngOnInit() {
-    // Cada vez que entra al componente, nueva suscripción
     this.service.data$.subscribe(data => {
       this.data = data;
     });
-    // Sin unsubscribe en ngOnDestroy
-    // La memoria crece infinitamente
   }
 }
 ```
 
-**✅ CORRECCIÓN:**
+### Buena práctica real
 
 ```typescript
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+
 export class GoodComponent implements OnInit, OnDestroy {
-  subscription: Subscription;
-  
+  private destroy$ = new Subject<void>();
+
   ngOnInit() {
-    this.subscription = this.service.data$.subscribe(data => {
-      this.data = data;
-    });
+    this.service.data$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(data => {
+        this.data = data;
+      });
   }
-  
+
   ngOnDestroy() {
-    this.subscription.unsubscribe(); // ✅ Limpiar
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }
 ```
 
-### ❌ Memory Leak 2: Event Listeners
-
-```typescript
-// ❌ INCORRECTO
-ngOnInit() {
-  window.addEventListener('scroll', () => {
-    console.log('Scrolling');
-  });
-  // ¿Quién lo remueve?
-}
-```
-
-**✅ CORRECCIÓN:**
+### Limpiar event listeners
 
 ```typescript
 scrollHandler = () => console.log('Scrolling');
@@ -394,19 +392,7 @@ ngOnDestroy() {
 }
 ```
 
-### ❌ Memory Leak 3: Timers
-
-```typescript
-// ❌ INCORRECTO
-ngOnInit() {
-  setInterval(() => {
-    this.counter++;
-  }, 1000);
-  // El interval corre eternamente
-}
-```
-
-**✅ CORRECCIÓN:**
+### Limpiar timers
 
 ```typescript
 timerId: any;
@@ -424,89 +410,74 @@ ngOnDestroy() {
 
 ---
 
-## Comunicación Entre Componentes
+## Comunicación entre componentes
 
-### Patrón 1: Padre → Hijo (@Input)
+### Padre → Hijo con `@Input`
 
-```typescript
-// Padre
+```html
 <app-child [message]="'Hola'"></app-child>
-
-// Hijo recibe
-@Input() message: string;
-template: {{ message }}  // "Hola"
 ```
 
-### Patrón 2: Hijo → Padre (@Output)
+```typescript
+@Input() message: string;
+```
+
+### Hijo → Padre con `@Output`
 
 ```typescript
-// Hijo emite
 @Output() onClick = new EventEmitter<string>();
 
 handleClick() {
   this.onClick.emit('Clickeaste');
 }
-
-// Padre escucha
-<app-child (onClick)="handleChildClick($event)"></app-child>
-
-handleChildClick(message: string) {
-  console.log(message); // "Clickeaste"
-}
 ```
 
-### Patrón 3: Components NO Relacionados (Servicio)
+```html
+<app-child (onClick)="handleChildClick($event)"></app-child>
+```
+
+### Componentes no relacionados con servicio
 
 ```typescript
-// servicio.ts
 @Injectable({ providedIn: 'root' })
 export class MessageService {
   private messageSubject = new Subject<string>();
   message$ = this.messageSubject.asObservable();
-  
+
   sendMessage(msg: string) {
     this.messageSubject.next(msg);
   }
 }
+```
 
-// Componente A emite
+```typescript
 constructor(private messageService: MessageService) {}
+
 sendMessage() {
   this.messageService.sendMessage('Hola!');
 }
+```
 
-// Componente B recibe
+```typescript
 constructor(private messageService: MessageService) {}
+
 ngOnInit() {
   this.messageService.message$.subscribe(msg => {
-    console.log(msg); // "Hola!"
+    console.log(msg);
   });
 }
 ```
 
 ---
 
-## Change Detection (Optimización)
+## Optimización real con Change Detection
 
-**Por defecto, Angular revisa TODO cada cambio:**
+Angular por defecto revisa todo cuando cambia el estado.
 
-```typescript
-// ❌ LENTO
-@Component({
-  selector: 'app-card',
-  template: `{{ product.name }}`,
-  changeDetection: ChangeDetectionStrategy.Default
-})
-export class CardComponent {
-  @Input() product: any;
-}
-```
-
-**Con OnPush, solo revisa si @Input cambia:**
+### OnPush para rendimiento
 
 ```typescript
-// ✅ RÁPIDO
-import { ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-card',
@@ -518,32 +489,50 @@ export class CardComponent {
 }
 ```
 
-**Usa OnPush siempre que puedas.** (Lo enseñaremos mejor en Optimización)
+**Caso real:** en una lista de productos, `CardComponent` solo se verifica cuando cambian las `@Input()`.
+
+### `trackBy` para listas grandes
+
+```html
+<div *ngFor="let item of items; trackBy: trackById">
+  <app-item [item]="item"></app-item>
+</div>
+```
+
+```typescript
+trackById(index: number, item: any) {
+  return item.id;
+}
+```
+
+Esto evita renderizados innecesarios cuando solo cambian algunos elementos.
 
 ---
 
-## Checklist - Componentes Profesionales
+## Cuándo crear un componente
 
-- [ ] Componente generado con `ng generate`
-- [ ] Tiene `@Input()` para datos del padre
-- [ ] Tiene `@Output()` para eventos
-- [ ] Implementa `OnInit` para datos
-- [ ] Implementa `OnDestroy` para limpieza
-- [ ] Sin memory leaks (sin suscripciones olvidadas)
-- [ ] CSS aislado (solo aplica al componente)
-- [ ] Una responsabilidad clara
-- [ ] Nombres descriptivos
-- [ ] Menos de 300 líneas de código
+- cuando el bloque de UI se repite
+- cuando la lógica es compleja
+- cuando quieres separar responsabilidades
+- cuando el elemento puede reutilizarse en otra página
 
----
+## Buenas prácticas reales
 
-## Próximo
-
-Módulo 10: Templates y Data Binding - Conecta datos con HTML
+- componentes pequeños y claros
+- nombres descriptivos
+- usa `@Input()` y `@Output()` para comunicar
+- limpia subscripciones en `ngOnDestroy()`
+- usa `OnPush` para componentes con datos inmutables
 
 ---
 
 ## Resumen
 
-Si puedes explicarlo con tus palabras, vas bien.
-Si solo lo reconoces cuando lo ves, todavía falta práctica.
+Los componentes son el corazón de Angular.
+
+Con buenos componentes:
+
+- la app es más fácil de entender
+- el código se mantiene mejor
+- los cambios son más seguros
+- las pruebas son más sencillas
