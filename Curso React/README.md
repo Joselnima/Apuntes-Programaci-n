@@ -52,20 +52,22 @@ Solo necesitas:
 
 ### React Intermedio
 9. [Módulo 09 - useState](./modulos/09-usestate.md)
-10. [Módulo 10 - Renderizado condicional](./modulos/10-renderizado-condicional.md)
-11. [Módulo 11 - Renderizado de listas](./modulos/11-renderizado-listas.md)
-12. [Módulo 12 - Formularios](./modulos/12-formularios.md)
-13. [Módulo 13 - useEffect](./modulos/13-useeffect.md)
+10. [Módulo 10 - Ciclos de vida en React](./modulos/10-ciclos-vida-react.md)
+11. [Módulo 11 - Renderizado condicional](./modulos/11-renderizado-condicional.md)
+12. [Módulo 12 - Renderizado de listas](./modulos/12-renderizado-listas.md)
+13. [Módulo 13 - Formularios](./modulos/13-formularios.md)
+14. [Módulo 14 - useEffect](./modulos/14-useeffect.md)
 
 ### React Aplicado
-14. [Módulo 14 - Consumo de APIs](./modulos/14-consumo-apis.md)
-15. [Módulo 15 - React Router](./modulos/15-react-router.md)
-16. [Módulo 16 - Estructura profesional](./modulos/16-estructura-profesional.md)
-17. [Módulo 17 - Buenas prácticas](./modulos/17-buenas-practicas.md)
+15. [Módulo 15 - Consumo de APIs](./modulos/15-consumo-apis.md)
+16. [Módulo 16 - React Router](./modulos/16-react-router.md)
+17. [Módulo 17 - Estructura profesional](./modulos/17-estructura-profesional.md)
+18. [Módulo 18 - Buenas prácticas](./modulos/18-buenas-practicas.md)
 
 ### Proyecto Final
-18. [Módulo 18 - Proyecto final guiado](./modulos/18-proyecto-final.md)
-19. [Módulo 19 - Próximos pasos](./modulos/19-proximos-pasos.md)
+19. [Módulo 19 - Proyecto final guiado](./modulos/19-proyecto-final.md)
+20. [Módulo 20 - Cierre y reflexión](./modulos/20-cierre-y-reflexion.md)
+21. [Módulo 21 - Próximos pasos](./modulos/21-proximos-pasos.md)
 
 ---
 
